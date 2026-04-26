@@ -63,6 +63,10 @@ Improves risk monitoring efficiency
 - 👉 Live Dashboard (NovyPro):(https://www.novypro.com/create_project/upi-defect-tracker-dashboard)
 - 👉 Dashboard Preview: https://github.com/AnujaIraj/BFSI-Credit-Risk-Analysis-Dashboard/blob/main/Images.zip
 
+💻 Data Processing & Calculations  
+🧠 DAX Measures  
+- 👉 Business Logic & KPIs:
+
 💻 SQL Scripts: ()
 📌 Future Enhancements
 Add Machine Learning model for risk prediction
