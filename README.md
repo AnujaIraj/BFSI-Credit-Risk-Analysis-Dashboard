@@ -61,7 +61,7 @@ Improves risk monitoring efficiency
 🔗 Project Links
 📊 Power BI Dashboard: 
 - 👉 Live Dashboard (NovyPro):(https://www.novypro.com/create_project/upi-defect-tracker-dashboard)
-- 👉 Dashboard Preview: 
+- 👉 Dashboard Preview: https://github.com/AnujaIraj/BFSI-Credit-Risk-Analysis-Dashboard/blob/main/Images.zip
 
 💻 SQL Scripts: ()
 📌 Future Enhancements
