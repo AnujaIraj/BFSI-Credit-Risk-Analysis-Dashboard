@@ -1,0 +1,117 @@
+# 🧠 DAX Measures – BFSI Credit Risk Dashboard
+
+## 📊 1. Total Borrowers
+Total number of customers in the dataset.
+
+Total Borrowers =
+COUNTROWS(Fact_Borrowers)
+
+---
+
+## ⚠️ 2. Default Rate
+Percentage of customers who defaulted.
+
+Default Rate =
+DIVIDE(
+    COUNTROWS(
+        FILTER(
+            Fact_Borrowers,
+            Fact_Borrowers[DefaultFlag] = 1
+        )
+    ),
+    COUNTROWS(Fact_Borrowers),
+    0
+)
+
+---
+
+## 📈 3. Segment Default Rate
+Default rate calculated within specific segments (e.g., age group, utilization band).
+
+Segment Default Rate =
+DIVIDE(
+    CALCULATE(
+        COUNTROWS(Fact_Borrowers),
+        Fact_Borrowers[DefaultFlag] = 1
+    ),
+    COUNTROWS(Fact_Borrowers),
+    0
+)
+
+---
+
+## 📊 4. Default Rate vs Overall Average
+Compares segment performance with overall default rate.
+
+Default Rate vs Avg =
+[Segment Default Rate]
+-
+CALCULATE(
+    [Default Rate],
+    ALL(Dim_AgeGroup),
+    ALL(Dim_UtilBand)
+)
+
+---
+
+## 🎨 5. Default Rate Color Indicator
+Used for conditional formatting in visuals.
+
+Default Rate Color =
+IF(
+    [Default Rate vs Avg] > 0,
+    "#E24B4A",   -- High Risk (Red)
+    "#1D9E75"    -- Low Risk (Green)
+)
+
+---
+
+## 💳 6. Average Debt Ratio
+Average debt burden across borrowers.
+
+Avg Debt Ratio =
+AVERAGEX(
+    Fact_Borrowers,
+    Fact_Borrowers[DebtRatio]
+)
+
+---
+
+## 🚨 7. High Risk Customer Count
+Customers with high debt ratio and very high utilization.
+
+High Risk Count =
+CALCULATE(
+    COUNTROWS(Fact_Borrowers),
+    Fact_Borrowers[DebtRatio] > 0.5,
+    Dim_UtilBand[UtilBand] = "Very High (80%+)"
+)
+
+---
+
+## 📊 8. Risk Concentration
+Proportion of high-risk customers.
+
+Risk Concentration =
+DIVIDE(
+    [High Risk Count],
+    [Total Borrowers],
+    0
+)
+
+---
+
+## ⏱️ 9. Percentage of 90-Day Late Payments
+Measures severe delinquency behavior.
+
+Pct 90-Day Late =
+DIVIDE(
+    COUNTROWS(
+        FILTER(
+            Fact_Borrowers,
+            Fact_Borrowers[NumberOfTimes90DaysLate] > 0
+        )
+    ),
+    COUNTROWS(Fact_Borrowers),
+    0
+)
