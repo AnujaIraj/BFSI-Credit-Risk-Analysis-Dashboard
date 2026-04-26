@@ -59,8 +59,11 @@ Improves risk monitoring efficiency
 (Add your Power BI dashboard screenshot here — same as your LinkedIn post)
 
 🔗 Project Links
-📊 Power BI Dashboard: (Add link if published)
-💻 SQL Scripts: (Add repo folder link)
+📊 Power BI Dashboard: 
+- 👉 Live Dashboard (NovyPro):(https://www.novypro.com/create_project/upi-defect-tracker-dashboard)
+- 👉 Dashboard Preview: 
+
+💻 SQL Scripts: ()
 📌 Future Enhancements
 Add Machine Learning model for risk prediction
 Integrate real-time data pipeline
